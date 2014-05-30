@@ -1,0 +1,145 @@
+$font-branding              : "Josefin Slab";
+$font-body                  : Lato;
+$color-abbey                : #50585D;
+$color-catskill             : #EBF2F6;
+$color-pattens-blue         : #D6EDFF;
+$color-perano               : #9CCCF2;
+$color-lima                 : #73D80E;
+$transition-default         : all 0.3s ease;
+
+$padding-standard           : 0.9375rem;
+
+body {
+    font: normal 300 14px $font-body;
+
+    p {
+        font-weight: 300 !important;
+    }
+}
+
+a {
+    transition: $transition-default;
+    color: $color-lima;
+
+    &:hover {
+        color: $color-abbey;
+    }
+}
+
+code {
+    color: $color-lima;
+}
+
+.has-tip {
+    cursor: default !important;
+    font-weight: 100 !important;
+    border-bottom: none;
+
+    &:hover {
+        border-bottom: none;
+    }
+}
+
+div[role="header"] {
+    /* 50px */
+    margin-bottom: 3.125rem
+}
+.branding {
+    position: relative;
+    font: normal 700 3.125rem $font-branding;
+    color: $color-abbey;
+    text-align: center;
+    padding: 6.25rem 0;
+    border-bottom: solid 1px $color-catskill;
+    overflow: hidden;
+
+    &>a {
+        color: $color-abbey;
+        transition: $transition-default;
+
+        &:hover {
+            color: $color-lima;
+        }
+    }
+
+    .tags {
+        position: absolute;
+        float: left;
+        bottom: 0rem;
+        padding-left: $padding-standard;
+        font: normal 300 14px $font-body;
+
+        img {
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+        }
+    }
+}
+
+.main-navigation {
+    position: absolute;
+    width: auto;
+    right: $padding-standard;
+    right: 0rem;
+    bottom: 0rem;
+
+    li {
+        position: relative;
+        display: inline-block;
+        /* 20px */
+        margin-right: 1.25rem;
+        /* 20px */
+        font-size: 1.25rem;
+        /* 33px */
+        top: 2.0625rem;
+        transition: $transition-default;
+
+        &.previous, &.separator {
+            margin-right: 0rem;
+        }
+        &:last-child {
+            margin-right: 0rem;
+            margin-right: $padding-standard;
+        }
+
+        &:hover {
+            /* 28px */
+            top: 1.75rem;
+        }
+        &:hover.stuck {
+            top: 2.0625rem;
+        }
+    }
+}
+
+.post-excerpt {
+    padding-right: $padding-standard;
+
+    h4 {
+        /* 25px */
+        line-height: 1.5625rem;
+
+        a {
+            transition: $transition-default;
+            color: $color-lima;
+
+            &:hover {
+                color: $color-abbey;
+            }
+        }
+    }
+}
+
+.content {
+    padding: 1.875rem $padding-standard;
+
+    h1 {
+        color: $color-abbey;
+    }
+}
+
+.bottom {
+    height: 200px;
+    background-color: $color-abbey;
+}
