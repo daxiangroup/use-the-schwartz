@@ -21,3 +21,6 @@ Thumbs.db
 
 # User config
 #config.php
+
+*.codekit
+*.sass-cache*
