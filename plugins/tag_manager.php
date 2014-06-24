@@ -20,13 +20,17 @@ class Tag_Manager {
 
         $output = '';
         foreach ($tags as $tag) {
-            $output .= '<a href="'.$this->base_url.'/tags/'.preg_replace('/\ /', '-', strtolower($tag)).'">'.$tag.'</a>, ';
+            $output .= '<a href="'.$this->base_url.'/tags/'.preg_replace('/\ /', '-', strtolower($tag)).'">'.ucfirst($tag).'</a>, ';
         }
         $output = substr($output, 0, -2);
 
         $meta['tags'] = $output;
     }
 
+    public function before_render(&$twig_vars, &$twig, &$template)
+    {
+        // die('<pre>'.print_r($twig_vars,true).print_r($twig,true).print_r($template,true));
+    }
 }
 
 ?>

@@ -1,0 +1,50 @@
+            <div class="row">
+                <div class="columns large-12 branding">
+                    <a href="{{ base_url }}">Use The Schwartz</a>
+                    {% if meta.title %}
+                    <div class="title">- {{ meta.title }}</div>
+                    {% endif %}
+
+                    {% if is_front_page == false %}
+                    <ul class="main-navigation">
+                        {% if prev_page.url == '' %}
+                        <li class="previous">Older</li>
+                        {% else %}
+                        <li class="previous"><a href="{{ prev_page.url }}" title="Newer">Older</a></li>
+                        {% endif %}
+
+                        <li class="separator">/</li>
+
+                        {% if next_page.url == '' %}
+                        <li class="next">Newer</li>
+                        {% else %}
+                        <li class="next"><a href="{{ next_page.url }}" title="Older">Newer</a></li>
+                        {% endif %}
+                    </ul>
+
+                    <div class="jump-go">
+                        <div data-options="align:top" data-dropdown="dropy" class="button tiny">More</div>
+                        <ul id="dropy" class="f-dropdown" data-dropdown-content>
+                            {% for page in pages %}
+                            {% if (page.date != '' and page.title != current_page.title) %}
+                            <li><a href="#">{{ page.title }}</a></li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    {% if meta.date_formatted %}
+                    <div class="date">
+                        {{ meta.date_formatted }}
+                    </div>
+                    {% endif %}
+
+                    {% if meta.tags %}
+                    <div class="tags show-for-medium-up">
+                        {{ meta.tags }}
+                    </div>
+                    {% endif %}
+
+                    {% endif %}
+                </div>
+            </div>

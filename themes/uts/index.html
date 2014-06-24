@@ -4,67 +4,31 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
-        <link rel="stylesheet" href="{{ theme_url }}/css/foundation.css" />
+        <link rel="stylesheet" href="{{ theme_url }}/css/foundation.min.css" />
         <link rel="stylesheet" href="{{ theme_url }}/css/uts.css" />
-        <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' type='text/css'>
+        <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Lato:300,700' type='text/css'>
         <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Josefin+Slab:700' type='text/css'>
         <script src="{{ theme_url }}/js/vendor/modernizr.js"></script>
     </head>
-    <body>
+    <body {% if is_front_page %}class="front-page"{% endif %}>
 
-        <div role="header" class="row">
-            <div class="columns large-12 branding">
-                <a href="{{ base_url }}">Use The Schwartz</a>
-
-                {% if is_front_page == false %}
-                <ul class="main-navigation">
-                    {#
-                    <li class="front"><a href="{{ base_url }}">The Front</a></li>
-                    #}
-
-                    {% if prev_page.url == '' %}
-                    <li class="previous stuck">Previous</li>
-                    {% else %}
-                    <li class="previous"><a href="{{ prev_page.url }}">Previous</a></li>
-                    {% endif %}
-
-                    <li class="separator stuck">/</li>
-
-                    {% if next_page.url == '' %}
-                    <li class="next stuck">Next</li>
-                    {% else %}
-                    <li class="next"><a href="{{ next_page.url }}">Next</a></li>
-                    {% endif %}
-                </ul>
-
-                {% if meta.tags %}
-                <div class="tags">
-                    {{ meta.tags }}
-                </div>
-                {% endif %}
-
-                {% endif %}
-            </div>
+        <div role="header">
+            {% include 'branding.html' %}
+        </div>
+        <div role="header-mini">
+            {% include 'branding.html' %}
         </div>
 
         {% if is_front_page %}
 
-        {#
-        <ul class="nav">
+        <div class="row">
             {% for page in pages %}
-                {% if page.date %}
-                <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-        #}
-
-        <div class="row" data-equalizer>
-            {% for page in pages %}
-            <div class="columns small-10 small-offset-1 medium-4 medium-offset-0 large-3 left post-excerpt" data-equalizer-watch>
+            {% if page.date != '' %}
+            <div class="columns small-10 small-offset-1 medium-4 medium-offset-0 large-3 left post-excerpt">
                 <h4><a href="{{ page.url }}">{{ page.title }}</a></h4>
                 {{ page.excerpt }} <a href="{{ page.url }}">more</a>
             </div>
+            {% endif %}
             {% endfor %}
         </div>
 
@@ -80,12 +44,35 @@
         {% endif %}
 
         <div class="bottom">
+            <div class="uts">Use The Schwartz</div>
         </div>
 
         <script src="{{ theme_url }}/js/vendor/jquery.js"></script>
         <script src="{{ theme_url }}/js/foundation.min.js"></script>
+        <script src="{{ theme_url }}/js/foundation.dropdown.js"></script>
         <script>
-            $(document).foundation();
+            $(document).foundation({
+                dropdown: {
+                    active_class: 'open'
+                }
+            });
+
+$(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+    var hasClass = $('body').hasClass('stuck');
+
+    if (scroll > 250 && !hasClass) {
+        $('body').addClass('stuck');
+        return;
+    }
+
+    if (scroll < 250 && hasClass) {
+        $('body').removeClass('stuck');
+        return;
+    }
+
+    // console.log(scroll);
+});
         </script>
     </body>
 </html>

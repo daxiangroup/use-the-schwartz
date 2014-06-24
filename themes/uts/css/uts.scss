@@ -1,16 +1,21 @@
 $font-branding              : "Josefin Slab";
 $font-body                  : Lato;
+$color-body                 : #222222;
 $color-abbey                : #50585D;
+$color-shuttle-grey         : #6F7276;
 $color-catskill             : #EBF2F6;
 $color-pattens-blue         : #D6EDFF;
 $color-perano               : #9CCCF2;
 $color-lima                 : #73D80E;
+$color-white                : #FFFFFF;
 $transition-default         : all 0.3s ease;
+$transition-medium          : all 1.5s ease;
 
 $padding-standard           : 0.9375rem;
 
 body {
-    font: normal 300 14px $font-body;
+    /* 14px */
+    font: normal 300 .875rem $font-body;
 
     p {
         font-weight: 300 !important;
@@ -28,51 +33,125 @@ a {
 
 code {
     color: $color-lima;
+    font-size: .9375rem;
 }
 
-.has-tip {
-    cursor: default !important;
-    font-weight: 100 !important;
-    border-bottom: none;
+pre {
 
-    &:hover {
-        border-bottom: none;
+    &.code {
+        color: $color-lima;
+        font-size: .9375rem;
+        background: $color-shuttle-grey;
+        padding: .625rem;
+        margin: 1.25rem 0rem;
+        white-space: pre-wrap;
     }
 }
 
-div[role="header"] {
-    /* 50px */
-    margin-bottom: 3.125rem
+.code-definitions {
+    & td {
+        padding: .125rem .625rem;
+        vertical-align: top;
+    }
+
+    & code {
+        color: $color-body;
+        font-weight: normal;
+        /* 14px */
+        font-size: .875rem;
+    }
 }
-.branding {
-    position: relative;
-    font: normal 700 3.125rem $font-branding;
-    color: $color-abbey;
-    text-align: center;
-    padding: 6.25rem 0;
-    border-bottom: solid 1px $color-catskill;
-    overflow: hidden;
 
-    &>a {
+div[role*="header"] {
+    width: 100%;
+    transition: $transition-default;
+
+    .front-page & {
+        padding-bottom: $padding-standard;
+    }
+
+    .branding {
+        font: normal 700 3.125rem $font-branding;
+        /* 1px */
+        border-bottom: solid .0625rem $color-catskill;
+        overflow: hidden;
         color: $color-abbey;
-        transition: $transition-default;
 
-        &:hover {
-            color: $color-lima;
+        & > a {
+            color: $color-abbey;
+            transition: $transition-default;
+
+            &:hover {
+                color: $color-lima;
+            }
         }
     }
 
     .tags {
         position: absolute;
-        float: left;
-        bottom: 0rem;
-        padding-left: $padding-standard;
-        font: normal 300 14px $font-body;
+        /* 4px */
+        bottom: .25rem;
+        /* 170px */
+        left: 10.625rem;
+        /* 14px */
+        font: normal 300 .875rem $font-body;
+    }
 
-        img {
-            width: 15px;
-            height: 15px;
-            margin-right: 5px;
+    .date {
+        position: absolute;
+        /* 4px */
+        bottom: .25rem;
+        left: $padding-standard;
+        /* 14px */
+        font: normal 300 .875rem $font-body;
+    }
+}
+
+div[role="header-mini"] {
+    position: fixed;
+    /* 76px */
+    top: -4.75rem;
+    z-index: 100;
+    /* 20px */
+    padding-bottom: 1.25rem;
+    background: $color-white;
+    transition: $transition-default;
+
+    .branding {
+        /* 25px */
+        font-size: 1.5625rem;
+        text-align: left;
+        /* 10px / 20px */
+        padding: .625rem $padding-standard 1.25rem $padding-standard;
+
+        & > a {
+            float: left;
+            /* 12px */
+            margin-right: .75rem;
+        }
+
+        .jump-go {
+            position: absolute;
+            right: 0em;
+            top: 10px;
+            z-index:2000;
+        }
+    }
+
+    .stuck & {
+        top: 0rem;
+    }
+}
+
+div[role="header"] {
+
+    .branding {
+        position: relative;
+        text-align: center;
+        padding: 6.25rem 0;
+
+        .title, .jump-go {
+            display: none;
         }
     }
 }
@@ -115,10 +194,12 @@ div[role="header"] {
 
 .post-excerpt {
     padding-right: $padding-standard;
+    height: 14.375rem;
 
     h4 {
         /* 25px */
         line-height: 1.5625rem;
+        border-bottom: solid 1px $color-catskill;
 
         a {
             transition: $transition-default;
@@ -132,7 +213,7 @@ div[role="header"] {
 }
 
 .content {
-    padding: 1.875rem $padding-standard;
+    padding: 0 $padding-standard;
 
     h1 {
         color: $color-abbey;
@@ -140,6 +221,16 @@ div[role="header"] {
 }
 
 .bottom {
-    height: 200px;
-    background-color: $color-abbey;
+    //background-color: $color-abbey;
+    /* 30px */
+    padding: 1.875rem 0rem;
+
+    .uts {
+        /* 80px */
+        font: normal 300 5rem $font-branding;
+        color: #f9f9f9;
+        text-align: center;
+        /* 10px */
+        margin-top: .625rem;
+    }
 }

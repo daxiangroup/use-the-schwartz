@@ -26,3 +26,4 @@ $config['site_title']     = 'Use The Schwartz';
 $config['theme']          = 'uts';
 $config['pages_order']    = 'desc';
 $config['pages_order_by'] = 'date';
+$config['date_format']    = 'F d, Y';

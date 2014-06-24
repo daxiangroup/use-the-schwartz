@@ -1,5 +1,6 @@
 body {
-  font: normal 300 14px Lato; }
+  /* 14px */
+  font: normal 300 0.875rem Lato; }
   body p {
     font-weight: 300 !important; }
 
@@ -11,43 +12,94 @@ a {
     color: #50585d; }
 
 code {
-  color: #73d80e; }
+  color: #73d80e;
+  font-size: .9375rem; }
 
-.has-tip {
-  cursor: default !important;
-  font-weight: 100 !important;
-  border-bottom: none; }
-  .has-tip:hover {
-    border-bottom: none; }
+pre.code {
+  color: #73d80e;
+  font-size: .9375rem;
+  background: #6f7276;
+  padding: .625rem;
+  margin: 1.25rem 0rem;
+  white-space: pre-wrap; }
 
-div[role="header"] {
-  /* 50px */
-  margin-bottom: 3.125rem; }
+.code-definitions td {
+  padding: .125rem .625rem;
+  vertical-align: top; }
+.code-definitions code {
+  color: #222222;
+  font-weight: normal;
+  /* 14px */
+  font-size: .875rem; }
 
-.branding {
-  position: relative;
-  font: normal 700 3.125rem "Josefin Slab";
-  color: #50585d;
-  text-align: center;
-  padding: 6.25rem 0;
-  border-bottom: solid 1px #ebf2f6;
-  overflow: hidden; }
-  .branding > a {
-    color: #50585d;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease; }
-    .branding > a:hover {
-      color: #73d80e; }
-  .branding .tags {
+div[role*="header"] {
+  width: 100%;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+  .front-page div[role*="header"] {
+    padding-bottom: 0.9375rem; }
+  div[role*="header"] .branding {
+    font: normal 700 3.125rem "Josefin Slab";
+    /* 1px */
+    border-bottom: solid 0.0625rem #ebf2f6;
+    overflow: hidden;
+    color: #50585d; }
+    div[role*="header"] .branding > a {
+      color: #50585d;
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+      div[role*="header"] .branding > a:hover {
+        color: #73d80e; }
+  div[role*="header"] .tags {
     position: absolute;
-    float: left;
-    bottom: 0rem;
-    padding-left: 0.9375rem;
-    font: normal 300 14px Lato; }
-    .branding .tags img {
-      width: 15px;
-      height: 15px;
-      margin-right: 5px; }
+    /* 4px */
+    bottom: .25rem;
+    /* 170px */
+    left: 10.625rem;
+    /* 14px */
+    font: normal 300 0.875rem Lato; }
+  div[role*="header"] .date {
+    position: absolute;
+    /* 4px */
+    bottom: .25rem;
+    left: 0.9375rem;
+    /* 14px */
+    font: normal 300 0.875rem Lato; }
+
+div[role="header-mini"] {
+  position: fixed;
+  /* 76px */
+  top: -4.75rem;
+  z-index: 100;
+  /* 20px */
+  padding-bottom: 1.25rem;
+  background: white;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+  div[role="header-mini"] .branding {
+    /* 25px */
+    font-size: 1.5625rem;
+    text-align: left;
+    /* 10px / 20px */
+    padding: 0.625rem 0.9375rem 1.25rem 0.9375rem; }
+    div[role="header-mini"] .branding > a {
+      float: left;
+      /* 12px */
+      margin-right: .75rem; }
+    div[role="header-mini"] .branding .jump-go {
+      position: absolute;
+      right: 0em;
+      top: 10px;
+      z-index: 2000; }
+  .stuck div[role="header-mini"] {
+    top: 0rem; }
+
+div[role="header"] .branding {
+  position: relative;
+  text-align: center;
+  padding: 6.25rem 0; }
+  div[role="header"] .branding .title, div[role="header"] .branding .jump-go {
+    display: none; }
 
 .main-navigation {
   position: absolute;
@@ -78,10 +130,12 @@ div[role="header"] {
       top: 2.0625rem; }
 
 .post-excerpt {
-  padding-right: 0.9375rem; }
+  padding-right: 0.9375rem;
+  height: 14.375rem; }
   .post-excerpt h4 {
     /* 25px */
-    line-height: 1.5625rem; }
+    line-height: 1.5625rem;
+    border-bottom: solid 1px #ebf2f6; }
     .post-excerpt h4 a {
       -webkit-transition: all 0.3s ease;
       transition: all 0.3s ease;
@@ -90,10 +144,17 @@ div[role="header"] {
         color: #50585d; }
 
 .content {
-  padding: 1.875rem 0.9375rem; }
+  padding: 0 0.9375rem; }
   .content h1 {
     color: #50585d; }
 
 .bottom {
-  height: 200px;
-  background-color: #50585d; }
+  /* 30px */
+  padding: 1.875rem 0rem; }
+  .bottom .uts {
+    /* 80px */
+    font: normal 300 5rem "Josefin Slab";
+    color: #f9f9f9;
+    text-align: center;
+    /* 10px */
+    margin-top: .625rem; }
