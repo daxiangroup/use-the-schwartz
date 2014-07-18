@@ -24,3 +24,6 @@ Thumbs.db
 
 *.codekit
 *.sass-cache*
+
+content/*.html
+content/*/*.html
