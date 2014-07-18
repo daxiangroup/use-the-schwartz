@@ -1,8 +1,8 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
-#RewriteRule %{REQUEST_URI} ^/tags/?(.*)$
-#RewriteRule . tags.php/$1
+#RewriteCond %{REQUEST_URI} ^/tags/
+#RewriteRule ^/tags/(.*) /tags?tag=$1
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
