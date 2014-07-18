@@ -1,0 +1,16 @@
+{% include 'header.html' %}
+
+<?php print_r($_GET); ?>
+
+        <div class="row">
+            {% for page in pages %}
+            {% if page.date != '' %}
+            <div class="columns small-10 small-offset-1 medium-4 medium-offset-0 large-3 left post-excerpt">
+                <h4><a href="{{ page.url }}">{{ page.title }}</a></h4>
+                {{ page.excerpt }} <a href="{{ page.url }}">more</a>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+{% include 'footer.html' %}
