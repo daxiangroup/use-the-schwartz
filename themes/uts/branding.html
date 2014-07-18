@@ -22,17 +22,6 @@
                         {% endif %}
                     </ul>
 
-                    <div class="jump-go">
-                        <div data-options="align:top" data-dropdown="dropy" class="button tiny">More</div>
-                        <ul id="dropy" class="f-dropdown" data-dropdown-content>
-                            {% for page in pages %}
-                            {% if (page.date != '' and page.title != current_page.title) %}
-                            <li><a href="#">{{ page.title }}</a></li>
-                            {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </div>
-
                     {% if meta.date_formatted %}
                     <div class="date">
                         {{ meta.date_formatted }}
